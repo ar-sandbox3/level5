@@ -33,7 +33,7 @@ go run cmd/jwtgen/main.go --symmetric --key supersecret
 However, this program is by default generating RS256 token.
 
 > [!NOTE]
-> Please make sure to generate RSA key pair first.
+> Please make sure to generate RSA keypair first.
 
 
 ```console

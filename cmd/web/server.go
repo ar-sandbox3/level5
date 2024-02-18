@@ -24,7 +24,7 @@ func basicAuth(next http.Handler) http.Handler {
 	fn := func(w http.ResponseWriter, req *http.Request) {
 		_, _, ok := req.BasicAuth()
 		if !ok {
-			w.Header().Add("WWW-Authenticate", "Basic real=hsi")
+			w.Header().Add("WWW-Authenticate", "Basic realm=hsi")
 			w.WriteHeader(http.StatusUnauthorized)
 			return
 		}
