@@ -16,7 +16,7 @@ var (
 )
 
 func main() {
-	flag.StringVar(&key, "key", "private.pem", "Path to private key file or simmetryc key")
+	flag.StringVar(&key, "key", "public.pem", "Path to private key file or symmetric key")
 	flag.BoolVar(&symmetric, "symmetric", false, "Use symmetric key")
 
 	flag.Parse()
@@ -32,18 +32,18 @@ func main() {
 	} else {
 		keyBytes, err := os.ReadFile(key)
 		if err != nil {
-			log.Fatalf("Failed to read private key file: %v", err)
+			log.Fatalf("Failed to read public key file: %v", err)
 		}
 
 		jwkKey, err = jwk.ParseKey(keyBytes, jwk.WithPEM(true))
 		if err != nil {
-			log.Fatalf("Failed to parse private key: %v", err)
+			log.Fatalf("Failed to parse public key: %v", err)
 		}
 	}
 
 	jwtBytes, err := os.ReadFile("token.jwt")
 	if err != nil {
-		log.Fatalf("Failed to read private key file: %v", err)
+		log.Fatalf("Failed to read token file: %v", err)
 	}
 
 	algorithm := jwa.RS256

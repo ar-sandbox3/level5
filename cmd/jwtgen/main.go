@@ -16,7 +16,7 @@ var (
 )
 
 func main() {
-	flag.StringVar(&key, "key", "private.pem", "Path to private key file or simmetryc key")
+	flag.StringVar(&key, "key", "private.pem", "Path to private key file or symmetric key")
 	flag.BoolVar(&symmetric, "symmetric", false, "Use symmetric key")
 
 	flag.Parse()
